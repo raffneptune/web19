@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="./raffneptune.jpg" type="image/x-icon" />
+    <title>Raff | QR Code</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav>
+        <a href="index.html">QR Code</a>
+        <div class="active" id="generator">Generator</div>
+        <div id="scanner">Scanner</div>
+      </nav>
+
+      <div class="container active" id="generator-container">
+        <div class="left">
+          <form action="#">
+            <div class="text">
+              <label for="text">
+                <i class="fa-solid fa-keyboard"></i>
+                enter your Text or URL
+              </label>
+              <input
+                type="text"
+                id="text"
+                placeholder="example (www.google.com) "
+              />
+            </div>
+            <div class="color">
+              <label>
+                <i class="fa-solid fa-paintbrush"></i>
+                color
+              </label>
+              <div class="colors-wrapper">
+                <div class="foreground">
+                  <span class="heading">foreground</span>
+                  <div class="custom-picker">
+                    <span></span>
+                    <input type="text" disabled value="#5a4ca1" />
+                    <input
+                      class="color-picker"
+                      type="color"
+                      id="fg-color"
+                      value="#5a4ca1"
+                    />
+                  </div>
+                </div>
+                <div class="background">
+                  <span class="heading">background</span>
+                  <div class="custom-picker">
+                    <span></span>
+                    <input type="text" disabled value="#ffffff" />
+                    <input
+                      class="color-picker"
+                      type="color"
+                      id="bg-color"
+                      value="#ffffff"
+                    />
+                  </div>
+                </div>
+                <div class="corner">
+                  <span class="heading">corner</span>
+                  <div class="custom-picker">
+                    <span></span>
+                    <input type="text" disabled value="#000000" />
+                    <input
+                      class="color-picker"
+                      type="color"
+                      id="corner-color"
+                      value="#000000"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="type">
+              <label>
+                <i class="fa-solid fa-qrcode"></i>
+                style
+              </label>
+              <div class="types-wrapper">
+                <div class="dots">
+                  <span class="heading">dots</span>
+                  <div class="custom-dropdown">
+                    <span class="selected" id="dots-style">square</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                    <div class="options">
+                      <span class="option">dots</span>
+                      <span class="option active">square</span>
+                      <span class="option">rounded</span>
+                      <span class="option">extra-rounded</span>
+                      <span class="option">classy</span>
+                      <span class="option">classy-rounded</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="corner-squares">
+                  <span class="heading">corners squares</span>
+                  <div class="custom-dropdown">
+                    <span class="selected" id="corner-squares-style"
+                      >square</span
+                    >
+                    <i class="fa-solid fa-chevron-down"></i>
+                    <div class="options">
+                      <span class="option">dots</span>
+                      <span class="option active">square</span>
+                      <span class="option">extra-rounded</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="corner-dots">
+                  <span class="heading">corners dots</span>
+                  <div class="custom-dropdown">
+                    <span class="selected" id="corner-dots-style">square</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                    <div class="options">
+                      <span class="option">dots</span>
+                      <span class="option active">square</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="logo">
+              <label>
+                <i class="fa-solid fa-image"></i>
+                Logo
+              </label>
+              <div class="logos">
+                <label class="logo">
+                  <input type="radio" name="logo" value="yt" checked />
+                  <img src="logos/youtube.png" alt="" id="yt" />
+                </label>
+                <label class="logo">
+                  <input type="radio" name="logo" value="fb"  />
+                  <img src="logos/facebook.png" alt="" id="fb" />
+                </label>
+                <label class="logo">
+                  <input type="radio" name="logo" value="tw" />
+                  <img src="logos/twitter.png" alt="" id="tw" />
+                </label>
+                <label class="logo">
+                  <input type="radio" name="logo" value="db" />
+                  <img src="logos/dribble.png" alt="" id="db" />
+                </label>
+                <label class="logo">
+                  <input type="radio" name="logo" value="li" />
+                  <img src="logos/linkedin.png" alt="" id="li" />
+                </label>
+                <label class="logo">
+                  <input type="radio" name="logo" value="ct" />
+                  <div class="upload-img">
+                    <i class="fa-solid fa-upload"></i>
+                    <input type="file" id="upload-img-input" />
+                    <img alt="" id="ct" />
+                  </div>
+                </label>
+              </div>
+            </div>
+            <div class="size">
+              <label>
+                <i class="fa-solid fa-expand"></i>
+                size
+              </label>
+              <div class="custom-slider">
+                <p class="left-text">low</p>
+                <div class="slider">
+                  <span>500 x 500</span>
+                  <input
+                    type="range"
+                    min="100"
+                    max="2000"
+                    value="500"
+                    id="size"
+                  />
+                </div>
+                <p class="right-text">high</p>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="right">
+          <button class="generate-btn">generate qr code</button>
+          <div class="qr-code">
+            <div class="qr-code-img"></div>
+          </div>
+          <div class="download">
+            <p>download in</p>
+            <div class="download-btns">
+              <button class="download-btn" id="download-png">
+                <i class="fa-solid fa-download"></i>
+                png
+              </button>
+              <button class="download-btn" id="download-jpg">
+                <i class="fa-solid fa-download"></i>
+                jpg
+              </button>
+              <button class="download-btn" id="download-svg">
+                <i class="fa-solid fa-download"></i>
+                svg
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container" id="scanner-container">
+        <div class="left">
+          <p class="heading">QR Code</p>
+          <label for="file" class="dropzone">
+            <div class="content show">
+              <span class="text">Drag QR Code here or</span>
+              <button class="btn">browse</button>
+              <input type="file" id="file" hidden />
+            </div>
+            <img id="preview" />
+          </label>
+        </div>
+        <i class="fa-solid fa-arrow-right-arrow-left"></i>
+        <div class="right">
+          <div class="result">
+            <p class="heading">Result</p>
+            <textarea id="result" disabled></textarea>
+            <div class="btns" id="result-btns">
+              <button class="btn" id="copy">
+                <i class="fa-solid fa-copy"></i>
+                copy
+              </button>
+              <button class="btn" id="open">
+                <i class="fa-solid fa-external-link"></i>
+                open
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="qr-code.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
